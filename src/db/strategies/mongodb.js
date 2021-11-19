@@ -54,13 +54,23 @@ class MongoDB extends ICrud {
         this._driver = Mongoose.connection
 
         this._driver.once('open', () => console.log('database rodando!'))
+        this.defineModel()
 
     }
     async create(item) {
-        const resultCadastrar = await model.create({
-            nome: 'Batman',
-            poder: 'Dinheiro'
-        })
+        return this._herois.create(item)
+    }
+    async read(query, skip=0, limit=10) {
+        return this._herois
+            .find(query)
+            .skip(skip)
+            .limit(limit)
+    }
+    async update(id, item) {
+        return this._herois.updateOne({_id: id}, {$set: item })
+    }
+    async delete(id) {
+        return this._herois.deleteOne({ _id: id })
     }
 }
 
