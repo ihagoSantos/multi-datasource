@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha src/tests/*.js",
-    "test:watch": "mocha src/tests/*.js -w"
+    "test:watch": "mocha src/tests/*.js -w "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^18.1.0",
+    "hapi": "^17.7.0",
+    "joi": "^14.1.0",
     "mongoose": "^6.0.13",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",

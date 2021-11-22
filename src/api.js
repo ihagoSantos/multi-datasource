@@ -1,5 +1,5 @@
 // npm install hapi
-const Hapi = require('hapi')
+const Hapi = require("hapi")
 const Context = require('./db/strategies/base/contextStrategy')
 const MongoDb = require('./db/strategies/mongodb/mongodb')
 const HeroiSchema = require('./db/strategies/mongodb/schemas/heroisSchema')
@@ -18,7 +18,6 @@ function mapRoutes(instance, methods) {
 async function main() {
     const connection = MongoDb.connect()
     const context = new Context(new MongoDb(connection, HeroiSchema))
-    console.log('mapRoutes', mapRoutes(new HeroRoute(context), HeroRoute.methods()))
     
     app.route([
         ...mapRoutes(new HeroRoute(context), HeroRoute.methods())        
