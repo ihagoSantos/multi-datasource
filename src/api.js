@@ -22,7 +22,7 @@ async function main() {
     app.route([
         ...mapRoutes(new HeroRoute(context), HeroRoute.methods())        
     ])
-
+    
     await app.start()
     console.log('Servidor rodando na porta', app.info.port)
 
